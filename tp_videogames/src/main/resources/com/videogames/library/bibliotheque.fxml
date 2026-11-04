@@ -6,10 +6,10 @@
 <VBox xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.BibliothequeController"
-    spacing="12" styleClass="tab-content">
+    spacing="12">
 
     <HBox alignment="CENTER_LEFT" spacing="10">
-        <Label text="Ma bibliothèque" styleClass="section-title" />
+        <Label text="Ma bibliothèque" />
         <Region HBox.hgrow="ALWAYS" />
         <TextField fx:id="rechercheField" promptText="Rechercher un titre..." prefWidth="240" />
         <CheckBox fx:id="filtrePossede" text="Possédés" />
@@ -19,14 +19,14 @@
 
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Button text="Ajouter un jeu" onAction="#surAjouter" />
-        <Button text="Rafraîchir" onAction="#surRafraichir" styleClass="secondaire" />
-        <Button text="Retirer" onAction="#surRetirer" styleClass="secondaire" />
-        <Button text="Marquer possédé" onAction="#surPossede" styleClass="secondaire" />
-        <Button text="Marquer à acheter" onAction="#surAAcheter" styleClass="secondaire" />
-        <Button text="Basculer favori" onAction="#surFavori" styleClass="secondaire" />
+        <Button text="Rafraîchir" onAction="#surRafraichir" />
+        <Button text="Retirer" onAction="#surRetirer" />
+        <Button text="Marquer possédé" onAction="#surPossede" />
+        <Button text="Marquer à acheter" onAction="#surAAcheter" />
+        <Button text="Basculer favori" onAction="#surFavori" />
     </HBox>
 
-    <Label fx:id="message" styleClass="error" />
+    <Label fx:id="message" />
 
     <TableView fx:id="table" VBox.vgrow="ALWAYS">
         <columns>

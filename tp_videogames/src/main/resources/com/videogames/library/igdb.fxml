@@ -6,9 +6,9 @@
 <VBox xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.IgdbController"
-    spacing="12" styleClass="tab-content">
+    spacing="12">
 
-    <Label text="Recherche IGDB" styleClass="section-title" />
+    <Label text="Recherche IGDB" />
 
     <HBox alignment="CENTER_LEFT" spacing="8">
         <TextField fx:id="queryField" promptText="Titre du jeu à rechercher sur IGDB"
@@ -16,7 +16,7 @@
         <Button fx:id="rechercheButton" text="Rechercher sur IGDB" onAction="#surRechercher" />
     </HBox>
 
-    <Label fx:id="message" styleClass="error" wrapText="true" />
+    <Label fx:id="message" wrapText="true" />
 
     <TableView fx:id="table" VBox.vgrow="ALWAYS">
         <columns>

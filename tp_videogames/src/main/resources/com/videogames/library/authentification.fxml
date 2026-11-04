@@ -7,10 +7,10 @@
 <StackPane xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.AuthentificationController"
-    prefWidth="960" prefHeight="640" styleClass="root">
+    prefWidth="960" prefHeight="640">
 
-    <VBox fx:id="loginBox" alignment="CENTER" spacing="12" styleClass="login-box">
-        <Label text="Connexion" styleClass="title">
+    <VBox fx:id="loginBox" alignment="CENTER" spacing="12">
+        <Label text="Connexion">
             <font>
                 <Font size="28" />
             </font>
@@ -21,13 +21,13 @@
             onAction="#surConnexion" />
         <Button fx:id="boutonConnexion" text="Se connecter" prefWidth="280" maxWidth="280"
             onAction="#surConnexion" />
-        <Label fx:id="loginMessageErreur" styleClass="error" />
+        <Label fx:id="loginMessageErreur" />
         <Hyperlink text="Créer un compte" onAction="#basculerVersInscription" />
     </VBox>
 
-    <VBox fx:id="registerBox" alignment="CENTER" spacing="12" styleClass="login-box" visible="false"
+    <VBox fx:id="registerBox" alignment="CENTER" spacing="12" visible="false"
         managed="false">
-        <Label text="Inscription" styleClass="title">
+        <Label text="Inscription">
             <font>
                 <Font size="28" />
             </font>
@@ -40,7 +40,7 @@
             onAction="#surInscription" />
         <Button fx:id="boutonInscription" text="Créer un compte" prefWidth="280" maxWidth="280"
             onAction="#surInscription" />
-        <Label fx:id="registerMessageErreur" styleClass="error" />
+        <Label fx:id="registerMessageErreur" />
         <Hyperlink text="Déjà un compte ? Se connecter" onAction="#basculerVersConnexion" />
     </VBox>
 

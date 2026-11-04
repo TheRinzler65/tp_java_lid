@@ -6,19 +6,19 @@
 <BorderPane xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.AccueilController"
-    prefWidth="1180" prefHeight="760" styleClass="root">
+    prefWidth="1180" prefHeight="760">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="header">
-            <Label text="GameLib" styleClass="brand" />
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <Label text="GameLib" />
             <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="pseudoLabel" styleClass="pseudo" />
+            <Label fx:id="pseudoLabel" />
             <Button text="Se déconnecter" onAction="#seDeconnecter" />
         </HBox>
     </top>
 
     <center>
-        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
+        <TabPane tabClosingPolicy="UNAVAILABLE">
             <Tab text="Bibliothèque">
                 <fx:include source="bibliotheque.fxml" />
             </Tab>

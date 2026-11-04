@@ -19,8 +19,6 @@ public class App extends Application {
                 getClass().getResource("/com/videogames/library/authentification.fxml"));
 
         Scene scene = new Scene(root, 960, 640);
-        scene.getStylesheets().add(
-                getClass().getResource("/com/videogames/library/styles.css").toExternalForm());
 
         stage.setTitle("GameLib - Connexion");
         stage.setScene(scene);

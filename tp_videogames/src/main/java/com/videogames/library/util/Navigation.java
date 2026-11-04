@@ -11,7 +11,6 @@ import java.net.URL;
 public final class Navigation {
 
     private static final String BASE = "/com/videogames/library/";
-    private static final String CSS = "styles.css";
 
     private Navigation() {
     }
@@ -32,10 +31,6 @@ public final class Navigation {
             }
             Parent root = FXMLLoader.load(url);
             Scene scene = new Scene(root, largeur, hauteur);
-            URL css = Navigation.class.getResource(BASE + CSS);
-            if (css != null) {
-                scene.getStylesheets().add(css.toExternalForm());
-            }
             stage.setTitle(titre);
             stage.setScene(scene);
             stage.show();

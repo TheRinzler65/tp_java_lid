@@ -6,30 +6,30 @@
 <VBox xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.ComparaisonController"
-    spacing="12" styleClass="tab-content">
+    spacing="12">
 
-    <Label text="Comparer nos bibliothèques" styleClass="section-title" />
+    <Label text="Comparer nos bibliothèques" />
 
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Label text="Ami :" />
         <ComboBox fx:id="amiCombo" promptText="Choisir un ami" prefWidth="240" />
         <Button text="Comparer" onAction="#surComparer" />
-        <Button text="Rafraîchir" onAction="#surRafraichir" styleClass="secondaire" />
+        <Button text="Rafraîchir" onAction="#surRafraichir" />
         <Region HBox.hgrow="ALWAYS" />
-        <Label fx:id="message" styleClass="error" />
+        <Label fx:id="message" />
     </HBox>
 
     <HBox spacing="16" VBox.vgrow="ALWAYS">
         <VBox spacing="6" HBox.hgrow="ALWAYS">
-            <Label text="En commun" styleClass="section-title" />
+            <Label text="En commun" />
             <ListView fx:id="communsList" VBox.vgrow="ALWAYS" />
         </VBox>
         <VBox spacing="6" HBox.hgrow="ALWAYS">
-            <Label text="Chez moi seulement" styleClass="section-title" />
+            <Label text="Chez moi seulement" />
             <ListView fx:id="seulementMoiList" VBox.vgrow="ALWAYS" />
         </VBox>
         <VBox spacing="6" HBox.hgrow="ALWAYS">
-            <Label fx:id="titreSeulementAutre" text="Chez l'ami seulement" styleClass="section-title" />
+            <Label fx:id="titreSeulementAutre" text="Chez l'ami seulement" />
             <ListView fx:id="seulementAutreList" VBox.vgrow="ALWAYS" />
         </VBox>
     </HBox>

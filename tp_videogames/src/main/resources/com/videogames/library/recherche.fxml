@@ -6,9 +6,9 @@
 <VBox xmlns="http://javafx.com/javafx/13"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.videogames.library.controller.RechercheController"
-    spacing="12" styleClass="tab-content">
+    spacing="12">
 
-    <Label text="Rechercher des jeux" styleClass="section-title" />
+    <Label text="Rechercher des jeux" />
 
     <HBox alignment="CENTER_LEFT" spacing="10">
         <TextField fx:id="titreField" promptText="Titre..." prefWidth="200" />
@@ -22,10 +22,10 @@
 
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Button text="Ajouter à ma bibliothèque" onAction="#surAjouter" />
-        <Button text="Marquer à acheter" onAction="#surAAcheter" styleClass="secondaire" />
-        <Button text="Basculer favori" onAction="#surFavori" styleClass="secondaire" />
+        <Button text="Marquer à acheter" onAction="#surAAcheter" />
+        <Button text="Basculer favori" onAction="#surFavori" />
         <Region HBox.hgrow="ALWAYS" />
-        <Label fx:id="message" styleClass="error" />
+        <Label fx:id="message" />
     </HBox>
 
     <TableView fx:id="table" VBox.vgrow="ALWAYS">
