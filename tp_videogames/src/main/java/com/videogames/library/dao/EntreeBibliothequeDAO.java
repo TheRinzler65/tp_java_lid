@@ -6,6 +6,7 @@ import com.videogames.library.model.Utilisateur;
 import com.videogames.library.util.HibernateUtil;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +29,38 @@ public class EntreeBibliothequeDAO extends AbstractDAO<EntreeBibliotheque> {
     /** Entrée (utilisateur, jeu) de la bibliothèque, ou null. */
     public EntreeBibliotheque trouver(Utilisateur u, Jeu jeu) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery(
-                    "from EntreeBibliotheque e where e.utilisateur = :u and e.jeu = :j",
+            EntreeBibliotheque entree = session.createQuery(
+                    "select e from EntreeBibliotheque e join fetch e.jeu "
+                            + "where e.utilisateur = :u and e.jeu = :j",
                     EntreeBibliotheque.class)
                     .setParameter("u", u)
                     .setParameter("j", jeu)
                     .uniqueResult();
+            if (entree != null) {
+                Hibernate.initialize(entree.getJeu().getGenres());
+                Hibernate.initialize(entree.getJeu().getPlateformes());
+            }
+            return entree;
+        }
+    }
+
+    /** Supprime l'entrée (utilisateur, jeu) si elle existe. */
+    public void supprimer(Utilisateur u, Jeu jeu) {
+        Transaction tx = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            tx = session.beginTransaction();
+            session.createMutationQuery(
+                    "delete from EntreeBibliotheque e "
+                            + "where e.utilisateur = :u and e.jeu = :j")
+                    .setParameter("u", u)
+                    .setParameter("j", jeu)
+                    .executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw e;
         }
     }
 
