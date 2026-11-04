@@ -37,6 +37,15 @@ public class App {
         testerVehicule(new Vehicule("TEST-001", "Test", 30, true));
         testerVehicule(new Vehicule("TEST-002", "Test", 100, false));
 
+        // Verification des methodes heritees sur les sous-classes
+        System.out.println("\n=== VERIFICATION DES METHODES HERITEES ===");
+        testerVehicule(voiture1);
+        testerVehicule(voiture2);
+        testerVehicule(moto1);
+        testerVehicule(moto2);
+        testerVehicule(utilitaire1);
+        testerVehicule(utilitaire2);
+
         Menu.demarrer();
     }
 
