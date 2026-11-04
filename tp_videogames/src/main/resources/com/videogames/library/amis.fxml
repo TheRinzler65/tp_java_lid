@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.AmisController"
+    spacing="12" styleClass="tab-content">
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox spacing="8" HBox.hgrow="ALWAYS">
+            <Label text="Rechercher des joueurs" styleClass="section-title" />
+            <HBox spacing="8">
+                <TextField fx:id="rechercheField" promptText="Pseudo ou email" HBox.hgrow="ALWAYS" />
+                <Button text="Rechercher" onAction="#surRechercher" />
+            </HBox>
+            <ListView fx:id="resultatsList" VBox.vgrow="ALWAYS" />
+            <Button text="Envoyer une demande" onAction="#surDemander" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="8" HBox.hgrow="ALWAYS">
+            <Label text="Mes amis" styleClass="section-title" />
+            <ListView fx:id="amisList" VBox.vgrow="ALWAYS" />
+            <HBox spacing="8">
+                <Button text="Retirer" onAction="#surRetirer" styleClass="secondaire" />
+                <Button text="Bloquer" onAction="#surBloquer" styleClass="secondaire" />
+            </HBox>
+        </VBox>
+
+        <VBox spacing="8" HBox.hgrow="ALWAYS">
+            <Label text="Demandes reçues" styleClass="section-title" />
+            <ListView fx:id="demandesList" VBox.vgrow="ALWAYS" />
+            <HBox spacing="8">
+                <Button text="Accepter" onAction="#surAccepter" />
+                <Button text="Refuser" onAction="#surRefuser" styleClass="secondaire" />
+            </HBox>
+
+            <Label text="Utilisateurs bloqués" styleClass="section-title" />
+            <ListView fx:id="bloquesList" prefHeight="130" />
+            <Button text="Débloquer" onAction="#surDebloquer" maxWidth="Infinity" />
+        </VBox>
+    </HBox>
+
+    <Label fx:id="message" styleClass="error" />
+</VBox>
