@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/videogameslibrary_db?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- "update" : crée/complète les tables sans jamais les supprimer.
+             Si le schéma change plus tard (nouvelles colonnes), passer
+             temporairement en "create" une fois pour recréer proprement. -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="com.videogames.library.model.Utilisateur"/>
+        <mapping class="com.videogames.library.model.RelationUtilisateur"/>
+        <mapping class="com.videogames.library.model.Genre"/>
+        <mapping class="com.videogames.library.model.Plateforme"/>
+        <mapping class="com.videogames.library.model.Jeu"/>
+        <mapping class="com.videogames.library.model.EntreeBibliotheque"/>
+    </session-factory>
+</hibernate-configuration>

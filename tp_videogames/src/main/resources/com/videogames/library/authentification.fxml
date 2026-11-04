@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.AuthentificationController"
+    prefWidth="960" prefHeight="640" styleClass="root">
+
+    <VBox fx:id="loginBox" alignment="CENTER" spacing="12" styleClass="login-box">
+        <Label text="Connexion" styleClass="title">
+            <font>
+                <Font size="28" />
+            </font>
+        </Label>
+        <TextField fx:id="loginEmail" promptText="Email" prefWidth="280" maxWidth="280"
+            onAction="#surConnexion" />
+        <PasswordField fx:id="loginMdp" promptText="Mot de passe" prefWidth="280" maxWidth="280"
+            onAction="#surConnexion" />
+        <Button fx:id="boutonConnexion" text="Se connecter" prefWidth="280" maxWidth="280"
+            onAction="#surConnexion" />
+        <Label fx:id="loginMessageErreur" styleClass="error" />
+        <Hyperlink text="Créer un compte" onAction="#basculerVersInscription" />
+    </VBox>
+
+    <VBox fx:id="registerBox" alignment="CENTER" spacing="12" styleClass="login-box" visible="false"
+        managed="false">
+        <Label text="Inscription" styleClass="title">
+            <font>
+                <Font size="28" />
+            </font>
+        </Label>
+        <TextField fx:id="registerEmail" promptText="Email" prefWidth="280" maxWidth="280"
+            onAction="#surInscription" />
+        <TextField fx:id="registerPseudo" promptText="Pseudo" prefWidth="280" maxWidth="280"
+            onAction="#surInscription" />
+        <PasswordField fx:id="registerMdp" promptText="Mot de passe" prefWidth="280" maxWidth="280"
+            onAction="#surInscription" />
+        <Button fx:id="boutonInscription" text="Créer un compte" prefWidth="280" maxWidth="280"
+            onAction="#surInscription" />
+        <Label fx:id="registerMessageErreur" styleClass="error" />
+        <Hyperlink text="Déjà un compte ? Se connecter" onAction="#basculerVersConnexion" />
+    </VBox>
+
+</StackPane>
