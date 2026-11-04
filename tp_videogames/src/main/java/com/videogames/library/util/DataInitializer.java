@@ -13,10 +13,6 @@ import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * Remplit la base avec des genres, des plateformes et des jeux de démonstration.
- * Ne fait rien si des jeux existent déjà.
- */
 public final class DataInitializer {
 
     private DataInitializer() {
@@ -29,7 +25,7 @@ public final class DataInitializer {
     public static void initialiser() {
         JeuDAO jeuDAO = new JeuDAO();
         if (!jeuDAO.trouverTous().isEmpty()) {
-            return; // déjà initialisé
+            return;
         }
 
         GenreDAO genreDAO = new GenreDAO();

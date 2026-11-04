@@ -5,7 +5,6 @@ import com.videogames.library.model.ModeJeu;
 import java.time.LocalDate;
 import java.util.List;
 
-/** Jeu tel que retourné par l'API IGDB, avant import dans la base locale. */
 public class JeuIgdb {
 
     private final long igdbId;

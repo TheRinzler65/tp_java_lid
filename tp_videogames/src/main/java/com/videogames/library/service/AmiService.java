@@ -9,9 +9,6 @@ import com.videogames.library.model.Utilisateur;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Demandes d'amis, acceptation/refus, suppression et blocage.
- */
 public class AmiService {
 
     private final RelationDAO relationDAO;
@@ -45,7 +42,6 @@ public class AmiService {
         return utilisateurDAO.rechercher(texte);
     }
 
-    /** Envoie une demande d'ami. */
     public RelationUtilisateur envoyerDemande(Utilisateur emetteur, Utilisateur cible) {
         if (Objects.equals(emetteur.getId(), cible.getId())) {
             throw new IllegalArgumentException("Vous ne pouvez pas vous ajouter vous-même.");
@@ -61,7 +57,7 @@ public class AmiService {
                 case BLOQUEE:
                     throw new IllegalArgumentException("Relation bloquée : impossible d'envoyer une demande.");
                 default:
-                    // REJETEE : une nouvelle demande est autorisée
+
                     relationDAO.supprimerParId(existante.getId());
             }
         }
@@ -81,7 +77,6 @@ public class AmiService {
         relationDAO.modifier(relation);
     }
 
-    /** Supprime la relation (ami ou demande) entre deux utilisateurs. */
     public void supprimer(Utilisateur a, Utilisateur b) {
         RelationUtilisateur relation = relationDAO.trouverEntre(a, b);
         if (relation != null) {
@@ -89,7 +84,6 @@ public class AmiService {
         }
     }
 
-    /** Bloque un utilisateur (remplace une éventuelle relation existante). */
     public void bloquer(Utilisateur utilisateur, Utilisateur cible) {
         if (Objects.equals(utilisateur.getId(), cible.getId())) {
             throw new IllegalArgumentException("Vous ne pouvez pas vous bloquer vous-même.");
@@ -101,7 +95,6 @@ public class AmiService {
         relationDAO.sauver(new RelationUtilisateur(utilisateur, cible, StatutRelation.BLOQUEE));
     }
 
-    /** Débloque un utilisateur (supprime le blocage). */
     public void debloquer(Utilisateur utilisateur, Utilisateur cible) {
         RelationUtilisateur existante = relationDAO.trouverEntre(utilisateur, cible);
         if (existante != null && existante.getStatut() == StatutRelation.BLOQUEE) {

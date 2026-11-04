@@ -80,7 +80,7 @@ public class Utilisateur {
             return false;
         }
         Utilisateur that = (Utilisateur) o;
-        // identité forte par id ; à défaut (entité non encore persistée) : identité objet
+
         if (id == null || that.id == null) {
             return this == that;
         }

@@ -17,12 +17,6 @@ import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Client minimal de l'API IGDB (https://api-docs.igdb.com).
- *
- * Les identifiants Twitch sont lus dans les variables d'environnement
- * IGDB_CLIENT_ID et IGDB_CLIENT_SECRET (ou les propriétés système du même nom).
- */
 public class IgdbClient {
 
     private static final String TOKEN_URL = "https://id.twitch.tv/oauth2/token";
@@ -61,11 +55,6 @@ public class IgdbClient {
                 && clientSecret != null && !clientSecret.isBlank();
     }
 
-    /**
-     * Recherche des jeux sur IGDB.
-     *
-     * @throws IllegalStateException si les identifiants ne sont pas configurés
-     */
     public List<JeuIgdb> rechercher(String texte, int limite)
             throws IOException, InterruptedException {
         if (!estConfigure()) {
@@ -118,7 +107,6 @@ public class IgdbClient {
         return accessToken;
     }
 
-    /** Convertit la réponse JSON d'IGDB en objets métier. Visible pour les tests. */
     List<JeuIgdb> parser(String json) throws IOException {
         JsonNode racine = mapper.readTree(json);
         List<JeuIgdb> jeux = new ArrayList<>();
@@ -166,9 +154,6 @@ public class IgdbClient {
         return noms;
     }
 
-    /**
-     * IGDB : 1 = solo, 2/3/4/5/6 = multi (multi, coop, écran partagé, MMO, battle royale).
-     */
     static ModeJeu mode(JsonNode gameModes) {
         boolean solo = false;
         boolean multi = false;

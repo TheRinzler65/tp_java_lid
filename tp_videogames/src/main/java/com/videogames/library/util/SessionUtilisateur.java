@@ -2,9 +2,6 @@ package com.videogames.library.util;
 
 import com.videogames.library.model.Utilisateur;
 
-/**
- * Utilisateur actuellement connecté, partagé par tous les écrans.
- */
 public final class SessionUtilisateur {
 
     private static Utilisateur courant;

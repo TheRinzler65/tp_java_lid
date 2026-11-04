@@ -11,7 +11,6 @@ public class GenreDAO extends AbstractDAO<Genre> {
         super(Genre.class);
     }
 
-    /** Retourne le genre portant ce nom (insensible à la casse), le crée s'il n'existe pas. */
     public Genre trouverOuCreer(String nom) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

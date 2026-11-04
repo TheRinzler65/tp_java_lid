@@ -9,9 +9,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Comparaison des bibliothèques de plusieurs utilisateurs.
- */
 public class ComparaisonService {
 
     private final EntreeBibliothequeDAO entreeDAO;
@@ -24,7 +21,6 @@ public class ComparaisonService {
         this.entreeDAO = entreeDAO;
     }
 
-    /** Jeux possédés par les deux utilisateurs, et exclusivités de chacun. */
     public ComparaisonResultat comparer(Utilisateur moi, Utilisateur autre) {
         Set<Jeu> mesJeux = new LinkedHashSet<>(entreeDAO.jeuxPossedesDe(moi));
         Set<Jeu> sesJeux = new LinkedHashSet<>(entreeDAO.jeuxPossedesDe(autre));
@@ -48,7 +44,6 @@ public class ComparaisonService {
         return new ComparaisonResultat(communs, seulementChezMoi, seulementChezAutre);
     }
 
-    /** Jeux possédés par tous les membres du groupe. */
     public List<Jeu> communsGroupe(List<Utilisateur> membres) {
         if (membres == null || membres.isEmpty()) {
             return new ArrayList<>();

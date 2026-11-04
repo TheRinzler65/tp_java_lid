@@ -11,9 +11,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
-        <!-- "update" : crée/complète les tables sans jamais les supprimer.
-             Si le schéma change plus tard (nouvelles colonnes), passer
-             temporairement en "create" une fois pour recréer proprement. -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="com.videogames.library.model.Utilisateur"/>

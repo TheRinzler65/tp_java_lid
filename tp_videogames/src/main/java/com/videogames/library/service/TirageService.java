@@ -16,18 +16,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * Tirage aléatoire d'un jeu commun à un groupe (multi) ou dans la
- * bibliothèque d'un utilisateur (solo).
- *
- * Règles :
- * - multi : seuls les jeux jouables à plusieurs sont retenus (sauf si le
- *   mode est explicitement filtré autrement) ;
- * - solo : seuls les jeux jouables en solo sont retenus ;
- * - les jeux exclus sont écartés ;
- * - des jeux hors bibliothèque commune peuvent être ajoutés : ils sont
- *   marqués comme tels afin d'afficher leur prix.
- */
 public class TirageService {
 
     private final EntreeBibliothequeDAO entreeDAO;
@@ -42,7 +30,6 @@ public class TirageService {
         this.random = random;
     }
 
-    /** Tirage multijoueur parmi les jeux possédés par tous les membres. */
     public ResultatTirage tirerPourGroupe(List<Utilisateur> membres, FiltreTirage filtre,
                                           Collection<Jeu> exclusions, Collection<Jeu> ajouts) {
         if (membres == null || membres.isEmpty()) {
@@ -56,7 +43,6 @@ public class TirageService {
         return tirer(communs, true, filtre, exclusions, ajouts);
     }
 
-    /** Tirage solo parmi les jeux possédés par l'utilisateur. */
     public ResultatTirage tirerSolo(Utilisateur utilisateur, FiltreTirage filtre,
                                     Collection<Jeu> exclusions, Collection<Jeu> ajouts) {
         if (utilisateur == null) {
@@ -92,7 +78,6 @@ public class TirageService {
             return null;
         }
 
-        // Tirage uniforme sur l'ensemble : jeux communs + jeux ajoutés.
         List<Jeu> tous = new ArrayList<>(candidats);
         tous.addAll(horsBibliotheque);
         Jeu choisi = tous.get(random.nextInt(tous.size()));

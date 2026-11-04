@@ -4,7 +4,6 @@ import com.videogames.library.model.Jeu;
 
 import java.util.List;
 
-/** Résultat de la comparaison de deux bibliothèques. */
 public class ComparaisonResultat {
 
     private final List<Jeu> communs;

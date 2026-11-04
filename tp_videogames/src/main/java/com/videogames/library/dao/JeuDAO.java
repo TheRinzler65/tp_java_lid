@@ -17,7 +17,6 @@ public class JeuDAO extends AbstractDAO<Jeu> {
         super(Jeu.class);
     }
 
-    /** Tous les jeux, avec genres et plateformes initialisés (session ouverte). */
     @Override
     public List<Jeu> trouverTous() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -37,18 +36,6 @@ public class JeuDAO extends AbstractDAO<Jeu> {
         }
     }
 
-    /**
-     * Recherche combinant plusieurs filtres optionnels.
-     * Les listes de genres/plateformes sont en logique OU (un jeu correspondant
-     * à au moins un des genres sélectionnés est retourné).
-     *
-     * @param titre          texte contenu dans le titre (insensible à la casse), null si absent
-     * @param genreIds       ids de genres requis, null/vide si aucun filtre
-     * @param plateformeIds  ids de plateformes requises, null/vide si aucun filtre
-     * @param mode           mode exact (SOLO / ONLINE / SOLO_ET_ONLINE), null si aucun filtre
-     * @param multiSeulement  true pour exclure les jeux strictement solo
-     * @param prixMax        prix maximum (inclus), null si aucun filtre
-     */
     public List<Jeu> rechercher(String titre,
                                 Collection<Long> genreIds,
                                 Collection<Long> plateformeIds,
@@ -121,7 +108,6 @@ public class JeuDAO extends AbstractDAO<Jeu> {
         }
     }
 
-    /** Initialise genres et plateformes tant que la session est ouverte. */
     private List<Jeu> chargerAvecCollections(Session session, List<Jeu> jeux) {
         for (Jeu j : jeux) {
             Hibernate.initialize(j.getGenres());

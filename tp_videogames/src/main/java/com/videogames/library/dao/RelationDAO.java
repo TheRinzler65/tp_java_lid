@@ -10,18 +10,12 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Accès aux relations entre utilisateurs (demandes d'amis, amis, blocages).
- * Les requêtes chargent systématiquement les deux extrémités de la relation
- * pour éviter les LazyInitializationException hors session.
- */
 public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
 
     public RelationDAO() {
         super(RelationUtilisateur.class);
     }
 
-    /** Toutes les relations où l'utilisateur est émetteur ou cible. */
     public List<RelationUtilisateur> listerRelationsDe(Utilisateur u) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(
@@ -34,7 +28,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         }
     }
 
-    /** Demandes d'amis reçues et toujours en attente (avec l'émetteur chargé). */
     public List<RelationUtilisateur> demandesRecues(Utilisateur u) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(
@@ -49,7 +42,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         }
     }
 
-    /** Relation (dans un sens ou dans l'autre) entre deux utilisateurs, ou null. */
     public RelationUtilisateur trouverEntre(Utilisateur a, Utilisateur b) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery(
@@ -65,7 +57,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         }
     }
 
-    /** Liste des amis (relations acceptées, dans les deux sens). */
     public List<Utilisateur> listerAmisDe(Utilisateur u) {
         List<Utilisateur> amis = new ArrayList<>();
         for (RelationUtilisateur r : listerRelationsDe(u)) {
@@ -79,7 +70,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         return amis;
     }
 
-    /** Utilisateurs que l'utilisateur a bloqués (lui-même émetteur du blocage). */
     public List<Utilisateur> listerBloquesPar(Utilisateur u) {
         List<Utilisateur> bloques = new ArrayList<>();
         for (RelationUtilisateur r : listerRelationsDe(u)) {
@@ -93,7 +83,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         return bloques;
     }
 
-    /** Utilisateurs ayant bloqué l'utilisateur passé (l'utilisateur est la cible). */
     public List<Utilisateur> listerBloquesDe(Utilisateur u) {
         List<Utilisateur> bloqueurs = new ArrayList<>();
         for (RelationUtilisateur r : listerRelationsDe(u)) {
@@ -107,7 +96,6 @@ public class RelationDAO extends AbstractDAO<RelationUtilisateur> {
         return bloqueurs;
     }
 
-    /** Suppression physique d'une relation par son identifiant (ignorée si absente). */
     public void supprimerParId(Long id) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

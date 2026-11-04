@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Critères de filtrage d'un tirage aléatoire. */
 public class FiltreTirage {
 
     private final Set<Long> genreIds = new HashSet<>();

@@ -8,9 +8,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * Changement d'écran centralisé (connexion / accueil).
- */
 public final class Navigation {
 
     private static final String BASE = "/com/videogames/library/";

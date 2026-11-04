@@ -11,10 +11,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Importe un jeu issu d'IGDB dans la base locale.
- * Si un jeu porte déjà le même titre, l'existant est retourné (pas de doublon).
- */
 public class ImportJeuService {
 
     private final JeuDAO jeuDAO;

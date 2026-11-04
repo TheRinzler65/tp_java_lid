@@ -8,7 +8,7 @@ public class HibernateUtil {
 
     static {
         try {
-            // Permet aux tests d'utiliser un autre fichier (ex. hibernate.cfg.test.xml + H2).
+
             String config = System.getProperty("hibernate.config", "hibernate.cfg.xml");
             sessionFactory = new Configuration().configure(config).buildSessionFactory();
         } catch (Throwable ex) {

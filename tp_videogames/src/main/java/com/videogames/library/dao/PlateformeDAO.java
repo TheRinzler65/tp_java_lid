@@ -11,7 +11,6 @@ public class PlateformeDAO extends AbstractDAO<Plateforme> {
         super(Plateforme.class);
     }
 
-    /** Retourne la plateforme portant ce nom (insensible à la casse), la crée si elle n'existe pas. */
     public Plateforme trouverOuCreer(String nom) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

@@ -5,11 +5,6 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-/**
- * Représente RELATION_AMIE du MCD : une relation orientée entre deux
- * utilisateurs, dont le statut (en attente / acceptée / bloquée) est porté
- * par le champ "statut_relation".
- */
 @Entity
 @Table(name = "relation_amie",
         uniqueConstraints = @UniqueConstraint(name = "uq_relation", columnNames = {"id_emetteur", "id_cible"}))
@@ -85,7 +80,6 @@ public class RelationUtilisateur {
         this.dateDemande = dateDemande;
     }
 
-    /** L'autre bout de la relation par rapport à l'utilisateur passé. */
     public Utilisateur autreQue(Utilisateur u) {
         if (emetteur != null && u != null && Objects.equals(emetteur.getId(), u.getId())) {
             return cible;

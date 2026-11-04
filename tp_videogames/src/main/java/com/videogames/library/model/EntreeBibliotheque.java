@@ -28,15 +28,12 @@ public class EntreeBibliotheque {
     @JoinColumn(name = "id_jeu")
     private Jeu jeu;
 
-    /** Le jeu est physiquement (ou numériquement) possédé. */
     @Column(name = "possede", nullable = false)
     private boolean possede;
 
-    /** Le jeu est dans la liste "à acheter". */
     @Column(name = "a_acheter", nullable = false)
     private boolean aAcheter;
 
-    /** Le jeu est marqué favori. */
     @Column(name = "favori", nullable = false)
     private boolean favori;
 

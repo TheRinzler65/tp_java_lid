@@ -4,10 +4,6 @@ import com.videogames.library.dao.UtilisateurDAO;
 import com.videogames.library.model.Utilisateur;
 import org.mindrot.jbcrypt.BCrypt;
 
-/**
- * Inscription et connexion des utilisateurs.
- * Les mots de passe sont stockés hachés (BCrypt), jamais en clair.
- */
 public class AuthService {
 
     private final UtilisateurDAO utilisateurDAO;
@@ -20,11 +16,6 @@ public class AuthService {
         this.utilisateurDAO = utilisateurDAO;
     }
 
-    /**
-     * Crée un compte et retourne l'utilisateur persisté.
-     *
-     * @throws IllegalArgumentException si un champ est invalide ou déjà utilisé
-     */
     public Utilisateur inscrire(String email, String pseudo, String mdp) {
         String emailNettoye = email == null ? "" : email.trim().toLowerCase();
         String pseudoNettoye = pseudo == null ? "" : pseudo.trim();
@@ -51,11 +42,6 @@ public class AuthService {
         return utilisateur;
     }
 
-    /**
-     * Vérifie les identifiants.
-     *
-     * @return l'utilisateur connecté, ou {@code null} si les identifiants sont faux
-     */
     public Utilisateur connecter(String email, String mdp) {
         if (email == null || mdp == null) {
             return null;
