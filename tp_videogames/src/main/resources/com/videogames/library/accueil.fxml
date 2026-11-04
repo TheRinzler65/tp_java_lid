@@ -32,9 +32,7 @@
                 <fx:include source="comparaison.fxml" />
             </Tab>
             <Tab text="Tirage">
-                <VBox fx:id="ongletTirage" spacing="12" styleClass="tab-content">
-                    <Label text="Module tirage (à venir)" />
-                </VBox>
+                <fx:include source="tirage.fxml" />
             </Tab>
         </TabPane>
     </center>

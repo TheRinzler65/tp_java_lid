@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.TirageController"
+    spacing="12" styleClass="tab-content">
+
+    <fx:define>
+        <ToggleGroup fx:id="modeGroupe" />
+    </fx:define>
+
+    <HBox alignment="CENTER_LEFT" spacing="16">
+        <Label text="Tirage aléatoire" styleClass="section-title" />
+        <RadioButton fx:id="multiRadio" text="Multijoueur (groupe d'amis)" toggleGroup="$modeGroupe"
+            selected="true" />
+        <RadioButton fx:id="soloRadio" text="Solo" toggleGroup="$modeGroupe" />
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Groupe (multi)" styleClass="section-title" />
+            <ListView fx:id="amisList" VBox.vgrow="ALWAYS" prefHeight="220" />
+        </VBox>
+
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Filtres" styleClass="section-title" />
+            <ComboBox fx:id="genreCombo" promptText="Genre" maxWidth="Infinity" />
+            <ComboBox fx:id="plateformeCombo" promptText="Plateforme" maxWidth="Infinity" />
+            <TextField fx:id="prixMaxField" promptText="Prix maximum (€)" />
+            <Region VBox.vgrow="ALWAYS" />
+        </VBox>
+
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Jeux exclus" styleClass="section-title" />
+            <ListView fx:id="exclusionsList" VBox.vgrow="ALWAYS" prefHeight="220" />
+            <HBox spacing="8">
+                <Button text="Exclure…" onAction="#surAjouterExclusion" styleClass="secondaire" />
+                <Button text="Ne plus exclure" onAction="#surRetirerExclusion" styleClass="secondaire" />
+            </HBox>
+        </VBox>
+
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Jeux ajoutés" styleClass="section-title" />
+            <ListView fx:id="ajoutsList" VBox.vgrow="ALWAYS" prefHeight="220" />
+            <HBox spacing="8">
+                <Button text="Ajouter…" onAction="#surAjouterAjout" styleClass="secondaire" />
+                <Button text="Retirer" onAction="#surRetirerAjout" styleClass="secondaire" />
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Button text="Lancer le tirage" onAction="#surTirer" />
+        <Label fx:id="message" styleClass="error" />
+    </HBox>
+
+    <VBox spacing="4" styleClass="result-box">
+        <Label fx:id="resultatTitre" text="—" styleClass="result-title" />
+        <Label fx:id="resultatDetails" styleClass="result-detail" wrapText="true" />
+    </VBox>
+</VBox>

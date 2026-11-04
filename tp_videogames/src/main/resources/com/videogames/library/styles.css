@@ -29,6 +29,22 @@
     -fx-font-weight: bold;
 }
 
+.result-box {
+    -fx-background-color: #1b1e2b;
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+}
+
+.result-title {
+    -fx-text-fill: #b9a9ff;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.result-detail {
+    -fx-text-fill: #cfd3e6;
+}
+
 .error {
     -fx-text-fill: #ff6b6b;
 }
