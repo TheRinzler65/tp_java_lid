@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.AccueilController"
+    prefWidth="1180" prefHeight="760" styleClass="root">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="header">
+            <Label text="GameLib" styleClass="brand" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="pseudoLabel" styleClass="pseudo" />
+            <Button text="Se déconnecter" onAction="#seDeconnecter" />
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
+            <Tab text="Bibliothèque">
+                <VBox fx:id="ongletBibliotheque" spacing="12" styleClass="tab-content">
+                    <Label text="Module bibliothèque (à venir)" />
+                </VBox>
+            </Tab>
+            <Tab text="Amis">
+                <VBox fx:id="ongletAmis" spacing="12" styleClass="tab-content">
+                    <Label text="Module amis (à venir)" />
+                </VBox>
+            </Tab>
+            <Tab text="Recherche">
+                <VBox fx:id="ongletRecherche" spacing="12" styleClass="tab-content">
+                    <Label text="Module recherche (à venir)" />
+                </VBox>
+            </Tab>
+            <Tab text="Comparer">
+                <VBox fx:id="ongletComparaison" spacing="12" styleClass="tab-content">
+                    <Label text="Module comparaison (à venir)" />
+                </VBox>
+            </Tab>
+            <Tab text="Tirage">
+                <VBox fx:id="ongletTirage" spacing="12" styleClass="tab-content">
+                    <Label text="Module tirage (à venir)" />
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
