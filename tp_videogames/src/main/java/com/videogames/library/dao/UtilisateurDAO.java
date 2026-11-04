@@ -25,4 +25,17 @@ public class UtilisateurDAO extends AbstractDAO<Utilisateur> {
                     .uniqueResult();
         }
     }
+
+    /** Recherche les utilisateurs dont le pseudo ou l'email contient le texte. */
+    public java.util.List<Utilisateur> rechercher(String texte) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery(
+                    "from Utilisateur u "
+                            + "where lower(u.pseudo) like :texte or lower(u.email) like :texte "
+                            + "order by u.pseudo",
+                    Utilisateur.class)
+                    .setParameter("texte", "%" + texte.trim().toLowerCase() + "%")
+                    .getResultList();
+        }
+    }
 }
