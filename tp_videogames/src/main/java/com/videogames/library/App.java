@@ -1,6 +1,7 @@
 package com.videogames.library;
 
 import com.videogames.library.util.DataInitializer;
+import com.videogames.library.util.Dotenv;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        Dotenv.charger();
         initialiserBase();
 
         Parent root = FXMLLoader.load(
