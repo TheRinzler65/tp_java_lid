@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.BibliothequeController"
+    spacing="12" styleClass="tab-content">
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Ma bibliothèque" styleClass="section-title" />
+        <Region HBox.hgrow="ALWAYS" />
+        <TextField fx:id="rechercheField" promptText="Rechercher un titre..." prefWidth="240" />
+        <CheckBox fx:id="filtrePossede" text="Possédés" />
+        <CheckBox fx:id="filtreAAcheter" text="À acheter" />
+        <CheckBox fx:id="filtreFavori" text="Favoris" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="Ajouter un jeu" onAction="#surAjouter" />
+        <Button text="Retirer" onAction="#surRetirer" styleClass="secondaire" />
+        <Button text="Marquer possédé" onAction="#surPossede" styleClass="secondaire" />
+        <Button text="Marquer à acheter" onAction="#surAAcheter" styleClass="secondaire" />
+        <Button text="Basculer favori" onAction="#surFavori" styleClass="secondaire" />
+    </HBox>
+
+    <Label fx:id="message" styleClass="error" />
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTitre" text="Titre" prefWidth="220" />
+            <TableColumn fx:id="colGenres" text="Genres" prefWidth="180" />
+            <TableColumn fx:id="colPlateformes" text="Plateformes" prefWidth="180" />
+            <TableColumn fx:id="colMode" text="Mode" prefWidth="100" />
+            <TableColumn fx:id="colPossede" text="Possédé" prefWidth="75" />
+            <TableColumn fx:id="colAAcheter" text="À acheter" prefWidth="80" />
+            <TableColumn fx:id="colFavori" text="Favori" prefWidth="65" />
+            <TableColumn fx:id="colDate" text="Ajouté le" prefWidth="95" />
+        </columns>
+    </TableView>
+</VBox>

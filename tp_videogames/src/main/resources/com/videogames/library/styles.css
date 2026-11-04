@@ -23,6 +23,12 @@
     -fx-text-fill: #a9aec4;
 }
 
+.section-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
 .error {
     -fx-text-fill: #ff6b6b;
 }

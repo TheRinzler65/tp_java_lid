@@ -20,9 +20,7 @@
     <center>
         <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
             <Tab text="Bibliothèque">
-                <VBox fx:id="ongletBibliotheque" spacing="12" styleClass="tab-content">
-                    <Label text="Module bibliothèque (à venir)" />
-                </VBox>
+                <fx:include source="bibliotheque.fxml" />
             </Tab>
             <Tab text="Amis">
                 <VBox fx:id="ongletAmis" spacing="12" styleClass="tab-content">
