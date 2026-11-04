@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.RechercheController"
+    spacing="12" styleClass="tab-content">
+
+    <Label text="Rechercher des jeux" styleClass="section-title" />
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <TextField fx:id="titreField" promptText="Titre..." prefWidth="200" />
+        <ComboBox fx:id="genreCombo" promptText="Genre" prefWidth="150" />
+        <ComboBox fx:id="plateformeCombo" promptText="Plateforme" prefWidth="160" />
+        <ComboBox fx:id="modeCombo" promptText="Mode" prefWidth="140" />
+        <TextField fx:id="prixMaxField" promptText="Prix max (€)" prefWidth="110" />
+        <CheckBox fx:id="multiSeulement" text="Multijoueur uniquement" />
+        <Button text="Rechercher" onAction="#surRechercher" />
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="Ajouter à ma bibliothèque" onAction="#surAjouter" />
+        <Button text="Marquer à acheter" onAction="#surAAcheter" styleClass="secondaire" />
+        <Button text="Basculer favori" onAction="#surFavori" styleClass="secondaire" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="message" styleClass="error" />
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTitre" text="Titre" prefWidth="210" />
+            <TableColumn fx:id="colGenres" text="Genres" prefWidth="170" />
+            <TableColumn fx:id="colPlateformes" text="Plateformes" prefWidth="190" />
+            <TableColumn fx:id="colMode" text="Mode" prefWidth="110" />
+            <TableColumn fx:id="colDate" text="Sortie" prefWidth="95" />
+            <TableColumn fx:id="colPrix" text="Prix" prefWidth="75" />
+        </columns>
+    </TableView>
+</VBox>
