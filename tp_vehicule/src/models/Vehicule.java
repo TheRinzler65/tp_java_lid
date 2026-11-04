@@ -62,4 +62,12 @@ public class Vehicule {
     public boolean isDisponible() {
         return disponible;
     }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public void setTarifJournalier(int tarifJournalier) {
+        this.tarifJournalier = tarifJournalier;
+    }
 }
