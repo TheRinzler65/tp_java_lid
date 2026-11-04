@@ -35,7 +35,7 @@ public class Vehicule {
         return true;
     }
 
-    public void rendre() {
+    public void retourner() {
         this.disponible = true;
         System.out.println("Le vehicule " + immatriculation + " a ete restitue.");
     }

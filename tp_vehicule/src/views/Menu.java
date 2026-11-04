@@ -109,7 +109,7 @@ public class Menu {
         if (v == null) {
             System.out.println("Aucun vehicule avec cette immatriculation.");
         } else {
-            v.rendre();
+            v.retourner();
         }
     }
 
