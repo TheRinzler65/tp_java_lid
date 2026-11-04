@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.videogames.library.controller.ComparaisonController"
+    spacing="12" styleClass="tab-content">
+
+    <Label text="Comparer nos bibliothèques" styleClass="section-title" />
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Ami :" />
+        <ComboBox fx:id="amiCombo" promptText="Choisir un ami" prefWidth="240" />
+        <Button text="Comparer" onAction="#surComparer" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="message" styleClass="error" />
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="En commun" styleClass="section-title" />
+            <ListView fx:id="communsList" VBox.vgrow="ALWAYS" />
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Chez moi seulement" styleClass="section-title" />
+            <ListView fx:id="seulementMoiList" VBox.vgrow="ALWAYS" />
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label fx:id="titreSeulementAutre" text="Chez l'ami seulement" styleClass="section-title" />
+            <ListView fx:id="seulementAutreList" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </HBox>
+</VBox>

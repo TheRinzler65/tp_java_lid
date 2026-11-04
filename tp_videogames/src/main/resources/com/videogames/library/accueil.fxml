@@ -29,9 +29,7 @@
                 <fx:include source="recherche.fxml" />
             </Tab>
             <Tab text="Comparer">
-                <VBox fx:id="ongletComparaison" spacing="12" styleClass="tab-content">
-                    <Label text="Module comparaison (à venir)" />
-                </VBox>
+                <fx:include source="comparaison.fxml" />
             </Tab>
             <Tab text="Tirage">
                 <VBox fx:id="ongletTirage" spacing="12" styleClass="tab-content">
