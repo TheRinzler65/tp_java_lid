@@ -68,6 +68,10 @@ public class Vehicule {
     }
 
     public void setTarifJournalier(int tarifJournalier) {
+        if (tarifJournalier < 0) {
+            throw new IllegalArgumentException(
+                    "Le tarif journalier ne peut pas etre negatif : " + tarifJournalier);
+        }
         this.tarifJournalier = tarifJournalier;
     }
 }
