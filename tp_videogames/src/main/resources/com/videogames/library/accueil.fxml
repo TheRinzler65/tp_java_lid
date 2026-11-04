@@ -34,6 +34,9 @@
             <Tab text="Tirage">
                 <fx:include source="tirage.fxml" />
             </Tab>
+            <Tab text="IGDB">
+                <fx:include source="igdb.fxml" />
+            </Tab>
         </TabPane>
     </center>
 </BorderPane>
