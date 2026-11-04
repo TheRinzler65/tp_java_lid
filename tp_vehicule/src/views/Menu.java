@@ -6,7 +6,7 @@ import java.util.Scanner;
 import models.Vehicule;
 
 public class Menu {
-    public static List<Vehicule> vehicules = new ArrayList<>();
+    private static final List<Vehicule> vehicules = new ArrayList<>();
 
     public static void demarrer() {
         Scanner scanner = new Scanner(System.in);
@@ -120,6 +120,10 @@ public class Menu {
             }
         }
         return null;
+    }
+
+    public static void ajouterVehicule(Vehicule vehicule) {
+        vehicules.add(vehicule);
     }
 
     private static void afficherPrixLocation(Scanner scanner) {
