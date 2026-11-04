@@ -1,12 +1,16 @@
 package models;
 
 public class Vehicule {
-    private String immatriculation;
+    private final String immatriculation;
     private String marque;
     private int tarifJournalier;
     private boolean disponible;
 
     public Vehicule(String immatriculation, String marque, int tarifJournalier, boolean disponible) {
+        if (tarifJournalier < 0) {
+            throw new IllegalArgumentException(
+                    "Le tarif journalier ne peut pas etre negatif : " + tarifJournalier);
+        }
         this.immatriculation = immatriculation;
         this.marque = marque;
         this.tarifJournalier = tarifJournalier;
