@@ -46,6 +46,12 @@ public class ComparaisonController {
     }
 
     @FXML
+    private void surRafraichir() {
+        message.setText("");
+        rafraichirAmis();
+    }
+
+    @FXML
     private void surComparer() {
         Utilisateur ami = amiCombo.getValue();
         if (ami == null) {

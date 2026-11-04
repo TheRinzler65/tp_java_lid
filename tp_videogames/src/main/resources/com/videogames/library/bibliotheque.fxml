@@ -19,6 +19,7 @@
 
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Button text="Ajouter un jeu" onAction="#surAjouter" />
+        <Button text="Rafraîchir" onAction="#surRafraichir" styleClass="secondaire" />
         <Button text="Retirer" onAction="#surRetirer" styleClass="secondaire" />
         <Button text="Marquer possédé" onAction="#surPossede" styleClass="secondaire" />
         <Button text="Marquer à acheter" onAction="#surAAcheter" styleClass="secondaire" />

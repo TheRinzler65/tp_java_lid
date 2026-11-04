@@ -18,7 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class IgdbController {
 
@@ -110,8 +109,4 @@ public class IgdbController {
         }
     }
 
-    @SuppressWarnings("unused")
-    private static String joindre(List<String> valeurs) {
-        return valeurs.stream().sorted().collect(Collectors.joining(", "));
-    }
 }

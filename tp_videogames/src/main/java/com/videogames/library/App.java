@@ -20,7 +20,7 @@ public class App extends Application {
         scene.getStylesheets().add(
                 getClass().getResource("/com/videogames/library/styles.css").toExternalForm());
 
-        stage.setTitle("TP_Java");
+        stage.setTitle("GameLib - Connexion");
         stage.setScene(scene);
         stage.show();
     }

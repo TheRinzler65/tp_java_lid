@@ -67,6 +67,12 @@ public class TirageController {
     }
 
     @FXML
+    private void surRafraichir() {
+        message.setText("");
+        amis.setAll(amiService.amis(SessionUtilisateur.exiger()));
+    }
+
+    @FXML
     private void surTirer() {
         message.setText("");
         try {

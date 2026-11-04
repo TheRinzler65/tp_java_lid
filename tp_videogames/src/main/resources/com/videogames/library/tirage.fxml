@@ -22,6 +22,7 @@
     <HBox spacing="16" VBox.vgrow="ALWAYS">
         <VBox spacing="6" HBox.hgrow="ALWAYS">
             <Label text="Groupe (multi)" styleClass="section-title" />
+            <Button text="Rafraîchir les amis" onAction="#surRafraichir" styleClass="secondaire" />
             <ListView fx:id="amisList" VBox.vgrow="ALWAYS" prefHeight="220" />
         </VBox>
 

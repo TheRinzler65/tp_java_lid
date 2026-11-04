@@ -96,6 +96,12 @@ public class BibliothequeController {
     }
 
     @FXML
+    private void surRafraichir() {
+        message.setText("");
+        rafraichir();
+    }
+
+    @FXML
     private void surAjouter() {
         message.setText("");
         Utilisateur utilisateur = SessionUtilisateur.exiger();

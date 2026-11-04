@@ -14,6 +14,7 @@
         <Label text="Ami :" />
         <ComboBox fx:id="amiCombo" promptText="Choisir un ami" prefWidth="240" />
         <Button text="Comparer" onAction="#surComparer" />
+        <Button text="Rafraîchir" onAction="#surRafraichir" styleClass="secondaire" />
         <Region HBox.hgrow="ALWAYS" />
         <Label fx:id="message" styleClass="error" />
     </HBox>
